@@ -1,6 +1,6 @@
 [versions]
 log4j = "2.23.1"
-protocol = "3.0.0.Beta11-SNAPSHOT"
+protocol = "3.0.0.Beta12-SNAPSHOT"
 
 [libraries]
 # Logging

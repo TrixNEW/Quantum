@@ -17,6 +17,7 @@ import org.cloudburstmc.protocol.bedrock.codec.v844.Bedrock_v844
 import org.cloudburstmc.protocol.bedrock.codec.v859.Bedrock_v859
 import org.cloudburstmc.protocol.bedrock.codec.v860.Bedrock_v860
 import org.cloudburstmc.protocol.bedrock.codec.v898.Bedrock_v898
+import org.cloudburstmc.protocol.bedrock.codec.v924.Bedrock_v924
 
 /**
  * Represents supported Minecraft Bedrock Edition versions
@@ -53,15 +54,16 @@ data class BedrockVersion(
         val V1_21_120 = BedrockVersion("1.21.120", 859, Bedrock_v859.CODEC)
         val V1_21_124 = BedrockVersion("1.21.124", 860, Bedrock_v860.CODEC)
         val V1_21_130 = BedrockVersion("1.21.130", 898, Bedrock_v898.CODEC)
+        val V1_26_0 = BedrockVersion("1.26.0", 924, Bedrock_v924.CODEC)
 
         val ALL = listOf(
             V1_21_0, V1_21_2, V1_21_20, V1_21_30, V1_21_40,
             V1_21_50, V1_21_60, V1_21_70, V1_21_80, V1_21_90,
             V1_21_93, V1_21_100, V1_21_110, V1_21_111,
-            V1_21_120, V1_21_124, V1_21_130
+            V1_21_120, V1_21_124, V1_21_130, V1_26_0
         )
 
-        val LATEST = V1_21_130
+        val LATEST = V1_26_0
 
         fun fromProtocol(protocol: Int): BedrockVersion?
         = ALL.firstOrNull { it.protocol == protocol }
