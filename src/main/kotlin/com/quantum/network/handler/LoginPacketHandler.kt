@@ -15,6 +15,8 @@ class LoginPacketHandler : PacketHandler() {
         val data = claims.extraData
         val xuid = data.xuid
 
+		// TODO: XBOX authentication
+
         val player = Player(
             Utils.calculateUuidFromXuid(xuid),
             data.displayName,

@@ -6,7 +6,7 @@ import org.cloudburstmc.protocol.common.PacketSignal
 class ResourcePackPacketHandler : PacketHandler() {
 
     override fun handle(packet: ResourcePackClientResponsePacket): PacketSignal {
-        server.logger.info(packet.packetType.toString())
+		// TODO: Resource pack system
         return PacketSignal.HANDLED
     }
 }

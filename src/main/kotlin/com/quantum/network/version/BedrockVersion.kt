@@ -63,7 +63,8 @@ data class BedrockVersion(
             V1_21_120, V1_21_124, V1_21_130, V1_26_0
         )
 
-        val LATEST = V1_26_0
+        val LATEST = V1_26_0 // Latest supported version
+        val MINIMUM = V1_21_0 // Minimum supported version
 
         fun fromProtocol(protocol: Int): BedrockVersion?
         = ALL.firstOrNull { it.protocol == protocol }

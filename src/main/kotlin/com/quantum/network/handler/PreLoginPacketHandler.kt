@@ -11,17 +11,20 @@ class PreLoginPacketHandler : PacketHandler() {
 
 	override fun handle(packet: RequestNetworkSettingsPacket): PacketSignal {
 		val clientVersion = BedrockVersion.fromProtocol(packet.protocolVersion)
-		val latest = BedrockVersion.LATEST
 
-		if (clientVersion == null || !clientVersion.isEqual(latest)) {
+		if (clientVersion == null || clientVersion.isBefore(BedrockVersion.MINIMUM)) {
 			val playStatus = PlayStatusPacket().apply {
-				status = if (clientVersion != null && clientVersion.isAfter(latest)) {
-					PlayStatusPacket.Status.LOGIN_FAILED_SERVER_OLD
-				} else {
-					PlayStatusPacket.Status.LOGIN_FAILED_CLIENT_OLD
-				}
+				status = PlayStatusPacket.Status.LOGIN_FAILED_CLIENT_OLD
 			}
+			session.sendPacketImmediately(playStatus)
+			session.disconnect()
+			return PacketSignal.HANDLED
+		}
 
+		if (clientVersion.isAfter(BedrockVersion.LATEST)) {
+			val playStatus = PlayStatusPacket().apply {
+				status = PlayStatusPacket.Status.LOGIN_FAILED_SERVER_OLD
+			}
 			session.sendPacketImmediately(playStatus)
 			session.disconnect()
 			return PacketSignal.HANDLED
@@ -32,7 +35,7 @@ class PreLoginPacketHandler : PacketHandler() {
 			compressionAlgorithm = PacketCompressionAlgorithm.ZLIB
 		}
 
-		session.codec = BedrockVersion.LATEST.codec
+		session.codec = clientVersion.codec
 		session.sendPacketImmediately(networkSettings)
 		session.setCompression(PacketCompressionAlgorithm.ZLIB)
 

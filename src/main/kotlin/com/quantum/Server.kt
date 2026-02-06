@@ -36,7 +36,7 @@ class Server {
 
         playerManager = PlayerManager()
         network = RakNetServer()
-        logger.info("This server is running Minecraft: Bedrock Edition v${BedrockVersion.LATEST.name}")
+        logger.info("This server is latest supporting Minecraft: Bedrock Edition v${BedrockVersion.LATEST.name}")
 
         logger.info("Server started! Type /help to get information about commands.")
 
