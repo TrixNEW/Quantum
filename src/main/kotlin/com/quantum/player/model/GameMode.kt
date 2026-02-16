@@ -1,5 +1,12 @@
 package com.quantum.player.model
 
+/**
+ * Represents all supported player GameModes.
+ * Defines default gameplay behavior and networking ID.
+ *
+ * @author ProTrix
+ * @since 16/02/2026
+ */
 enum class GameMode(
 	val id: Int,
 	val displayName: String,

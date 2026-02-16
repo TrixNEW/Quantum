@@ -79,7 +79,7 @@ class ServerConfig : OkaeriConfig() {
 		@Comment("World difficulty (0=Peaceful, 1=Easy, 2=Normal, 3=Hard)")
 		var difficulty = 1
 
-		@Comment("Enable player  combat")
+		@Comment("Enable player combat")
 		var pvp = true
 
 		@Comment("Enable vibrant visuals support (1.21.x)")

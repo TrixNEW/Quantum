@@ -13,6 +13,11 @@ import org.cloudburstmc.protocol.bedrock.packet.ResourcePacksInfoPacket
 import org.cloudburstmc.protocol.bedrock.packet.SetPlayerGameTypePacket
 import java.util.Objects
 
+/**
+ * The client network session
+ * @author xRookieFight
+ * @since 03/02/2026
+ */
 class Session(
 	peer: BedrockPeer,
 	subClientId: Int,
