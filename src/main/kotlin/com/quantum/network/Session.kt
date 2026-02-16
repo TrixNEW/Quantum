@@ -44,7 +44,7 @@ class Session(
 			worldTemplateId = Utils.EMPTY_UUID
 			worldTemplateVersion = ""
 			isVibrantVisualsForceDisabled = false
-		} // TODO: Resource Pack system
+		}
 		sendPacketImmediately(resourcePacksInfoPacket)
 
 		packetHandler = ResourcePackPacketHandler().attach(this, server)
