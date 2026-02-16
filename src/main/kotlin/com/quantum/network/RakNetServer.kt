@@ -3,6 +3,7 @@ package com.quantum.network
 import com.quantum.Server
 import com.quantum.network.handler.PreLoginPacketHandler
 import com.quantum.network.version.BedrockVersion
+import com.quantum.player.model.GameMode
 import io.netty.bootstrap.ServerBootstrap
 import io.netty.channel.Channel
 import io.netty.channel.nio.NioEventLoopGroup
@@ -11,10 +12,9 @@ import org.cloudburstmc.netty.channel.raknet.RakChannelFactory
 import org.cloudburstmc.netty.channel.raknet.config.RakChannelOption
 import org.cloudburstmc.protocol.bedrock.BedrockPeer
 import org.cloudburstmc.protocol.bedrock.BedrockPong
-import org.cloudburstmc.protocol.bedrock.data.GameType
 import org.cloudburstmc.protocol.bedrock.netty.initializer.BedrockChannelInitializer
 import java.net.InetSocketAddress
-import java.util.UUID
+import java.util.*
 
 /**
  * Head RakNet network class
@@ -27,7 +27,7 @@ class RakNetServer {
 
     private val advertisement = BedrockPong()
         .edition("MCPE")
-        .gameType(Server.instance.gameModeFrom(config.gameSettings.gamemode))
+		.gameType(GameMode.fromId(config.gameSettings.gamemode).displayName)
         .version(BedrockVersion.LATEST.name)
         .protocolVersion(BedrockVersion.LATEST.protocol)
         .motd(config.serverSettings.motd)

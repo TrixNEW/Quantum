@@ -2,7 +2,7 @@ package com.quantum.utils
 
 import java.nio.ByteBuffer
 import java.security.MessageDigest
-import java.util.UUID
+import java.util.*
 
 object Utils {
 

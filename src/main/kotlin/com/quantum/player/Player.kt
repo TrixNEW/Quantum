@@ -2,7 +2,7 @@ package com.quantum.player
 
 import com.quantum.Server
 import com.quantum.network.Session
-import java.util.UUID
+import java.util.*
 
 class Player(
     val uuid: UUID,

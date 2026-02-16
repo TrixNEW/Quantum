@@ -7,7 +7,6 @@ import com.quantum.player.PlayerManager
 import eu.okaeri.configs.ConfigManager
 import eu.okaeri.configs.yaml.snakeyaml.YamlSnakeYamlConfigurer
 import org.apache.logging.log4j.Logger
-import org.cloudburstmc.protocol.bedrock.data.GameType
 import java.io.File
 
 /**
