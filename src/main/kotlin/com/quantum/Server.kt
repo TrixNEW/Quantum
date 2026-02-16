@@ -80,14 +80,4 @@ class Server {
 
         shutdown()
     }
-
-	fun gameModeFrom(value: Int) : String {
-		return when (value) {
-			0 -> "Survival"
-			1 -> "Creative"
-			2 -> "Adventure"
-			3 -> "Spectator"
-			else -> "Unknown"
-		}
-	}
 }
